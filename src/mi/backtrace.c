@@ -55,7 +55,7 @@ slow_backtrace (void **buffer, int size, unw_context_t *uc)
 }
 
 int
-unw_backtrace (void **buffer, int size)
+unw_backtrace_old (void **buffer, int size)
 {
   unw_cursor_t cursor;
   unw_context_t uc;
@@ -76,6 +76,6 @@ unw_backtrace (void **buffer, int size)
 }
 
 extern int backtrace (void **buffer, int size)
-  WEAK ALIAS(unw_backtrace);
+  WEAK ALIAS(unw_backtrace_old);
 
 #endif /* !UNW_REMOTE_ONLY */
